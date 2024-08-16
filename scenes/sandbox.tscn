@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://py60dolkwny4"]
+[gd_scene load_steps=5 format=3 uid="uid://py60dolkwny4"]
 
 [ext_resource type="PackedScene" uid="uid://bvvc8whmt1b3" path="res://prefabs/player.tscn" id="1_2y8fg"]
 [ext_resource type="Texture2D" uid="uid://eu8glqxb4fo" path="res://graphics/sprites/square.png" id="2_2aclb"]
+[ext_resource type="PackedScene" uid="uid://bi5q26obd5axc" path="res://prefabs/scalable.tscn" id="3_qvanu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ssp7k"]
 size = Vector2(32, 32)
@@ -23,12 +24,18 @@ texture = ExtResource("2_2aclb")
 [node name="CollisionShape" type="CollisionShape2D" parent="Floor"]
 shape = SubResource("RectangleShape2D_ssp7k")
 
+[node name="Scalable" parent="Floor" instance=ExtResource("3_qvanu")]
+multiplier = 2.0
+
 [node name="Floor2" type="StaticBody2D" parent="."]
-position = Vector2(112, 65)
-scale = Vector2(2, 1)
+position = Vector2(120, 65)
+scale = Vector2(1.5, 1)
 
 [node name="Sprite" type="Sprite2D" parent="Floor2"]
 texture = ExtResource("2_2aclb")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Floor2"]
 shape = SubResource("RectangleShape2D_ssp7k")
+
+[node name="Scalable" parent="Floor2" instance=ExtResource("3_qvanu")]
+multiplier = 2.0

@@ -11,5 +11,5 @@ func fire(angle):
 
 func _on_body_entered(body):
 	if body.has_node("Scalable"):
-		body.get_node("Scalable").scale(decrease)
+		body.get_node("Scalable").run(decrease)
 	queue_free()
