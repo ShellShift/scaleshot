@@ -23,6 +23,8 @@ func shoot(alt):
 	bullet.position = $FirePoint.global_position
 	bullet.fire($FirePoint.global_rotation)
 	get_tree().current_scene.add_child(bullet)
+	Particles.spawn_particle("shoot", bullet)
+	Camera.shake()
 
 func animate_fire_point_color(alt):
 	var color = Color.CORAL if alt else Color.CADET_BLUE

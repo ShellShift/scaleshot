@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://py60dolkwny4"]
+[gd_scene load_steps=6 format=3 uid="uid://py60dolkwny4"]
 
 [ext_resource type="PackedScene" uid="uid://bvvc8whmt1b3" path="res://prefabs/player.tscn" id="1_2y8fg"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="1_tksrh"]
 [ext_resource type="Texture2D" uid="uid://eu8glqxb4fo" path="res://graphics/sprites/square.png" id="2_2aclb"]
 [ext_resource type="PackedScene" uid="uid://bi5q26obd5axc" path="res://prefabs/scalable.tscn" id="3_qvanu"]
 
@@ -9,8 +10,11 @@ size = Vector2(32, 32)
 
 [node name="Sandbox" type="Node2D"]
 
-[node name="Camera" type="Camera2D" parent="."]
+[node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 zoom = Vector2(4, 4)
+position_smoothing_enabled = true
+script = ExtResource("1_tksrh")
+target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("1_2y8fg")]
 
