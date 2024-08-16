@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgsdyjqu4d8ti"]
+
+[ext_resource type="Texture2D" uid="uid://cylxnxskfh1o7" path="res://graphics/sprites/player_arm.png" id="1_bpn5o"]
+[ext_resource type="Script" path="res://scripts/scaler.gd" id="1_nghk7"]
+[ext_resource type="Texture2D" uid="uid://eu8glqxb4fo" path="res://graphics/sprites/square.png" id="2_e5qu6"]
+[ext_resource type="Texture2D" uid="uid://bnhi3aafu4s0l" path="res://graphics/sprites/scaler.png" id="3_i7qu7"]
+
+[node name="Scaler" type="Node2D"]
+script = ExtResource("1_nghk7")
+
+[node name="RightArm" type="Sprite2D" parent="."]
+position = Vector2(5, -0.5)
+rotation = 1.5708
+texture = ExtResource("1_bpn5o")
+
+[node name="Square" type="Sprite2D" parent="."]
+modulate = Color(0.34902, 0.811765, 0.552941, 1)
+position = Vector2(16.5, -3)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_e5qu6")
+
+[node name="Gun" type="Sprite2D" parent="."]
+position = Vector2(12, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_i7qu7")
+
+[node name="FirePoint" type="Marker2D" parent="."]
+position = Vector2(16, -3)
