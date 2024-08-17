@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://chgas1ig1icyb"]
+
+[ext_resource type="Script" path="res://scripts/box.gd" id="1_0fjy8"]
+[ext_resource type="Texture2D" uid="uid://cjideei2o4080" path="res://graphics/sprites/box.png" id="2_4n4ya"]
+[ext_resource type="PackedScene" uid="uid://bi5q26obd5axc" path="res://prefabs/scalable.tscn" id="2_cy3a5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0pt6n"]
+size = Vector2(16, 16)
+
+[node name="Box" type="CharacterBody2D"]
+script = ExtResource("1_0fjy8")
+friction = 1000.0
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4n4ya")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0pt6n")
+
+[node name="Scalable" parent="." instance=ExtResource("2_cy3a5")]
+multiplier = 1.5

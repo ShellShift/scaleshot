@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://py60dolkwny4"]
+[gd_scene load_steps=10 format=3 uid="uid://py60dolkwny4"]
 
 [ext_resource type="PackedScene" uid="uid://bvvc8whmt1b3" path="res://prefabs/player.tscn" id="1_2y8fg"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_tksrh"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bi5q26obd5axc" path="res://prefabs/scalable.tscn" id="3_qvanu"]
 [ext_resource type="PackedScene" uid="uid://bphn7i6if1ycm" path="res://prefabs/bulk.tscn" id="5_ajnwy"]
 [ext_resource type="PackedScene" uid="uid://ca8e35evhwyrf" path="res://prefabs/cloud.tscn" id="6_dtw5y"]
+[ext_resource type="PackedScene" uid="uid://chgas1ig1icyb" path="res://prefabs/box.tscn" id="7_eqdqp"]
+[ext_resource type="PackedScene" uid="uid://cprewi4l3gpuq" path="res://prefabs/button.tscn" id="8_rj26c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ssp7k"]
 size = Vector2(32, 32)
@@ -19,6 +21,11 @@ script = ExtResource("1_tksrh")
 target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("1_2y8fg")]
+
+[node name="Button" parent="." node_paths=PackedStringArray("target") instance=ExtResource("8_rj26c")]
+position = Vector2(-128, 41)
+target = NodePath("../Floor2")
+inverted = true
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(-64, 65)
@@ -49,3 +56,6 @@ position = Vector2(-64, 0)
 
 [node name="Cloud" parent="." instance=ExtResource("6_dtw5y")]
 position = Vector2(137, 20)
+
+[node name="Box" parent="." instance=ExtResource("7_eqdqp")]
+position = Vector2(-98, 0)

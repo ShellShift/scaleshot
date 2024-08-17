@@ -13,7 +13,7 @@ func _ready():
 func run(decrease):
 	if scale_state == 1 and !decrease: return
 	if scale_state == -1 and decrease: return
-	scale_state = -1 if decrease else 1
+	scale_state = -1 if decrease else 1	
 	var new_scale = Vector2(multiplier, multiplier)
 	if decrease: new_scale = start_scale / new_scale
 	else: new_scale = start_scale * new_scale

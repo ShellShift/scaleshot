@@ -4,6 +4,7 @@ class_name Player extends CharacterBody2D
 @export var jump_velocity: float
 @export var coyote_time: float
 @export var jump_time: float
+@export var push: float
 var coyote_timer: float
 var jump_timer: float
 var jumping: bool
@@ -33,7 +34,12 @@ func _physics_process(delta):
 		$Sprite.flip_h = false
 		$LeftArm.position.x = -6
 	
-	move_and_slide()
+	if move_and_slide():
+		for i in get_slide_collision_count():
+			var col = get_slide_collision(i)
+			var body = col.get_collider()
+			if body is Box:
+				body.velocity.x = col.get_normal().x * -push
 
 func jump(force):
 	jumping = true
