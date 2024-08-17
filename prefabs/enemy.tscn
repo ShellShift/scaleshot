@@ -14,8 +14,8 @@ size = Vector2(32, 1)
 script = ExtResource("1_ro87f")
 speed = 57.0
 speed_modifiers = Vector2(1.5, 2)
-leftTarget = -5.0
-rightTarget = 5.0
+leftTarget = -50.0
+rightTarget = 50.0
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_shouh")

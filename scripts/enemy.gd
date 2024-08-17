@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Enemy extends CharacterBody2D
 
 @export var speed: float
 @export var speed_modifiers: Vector2
@@ -26,6 +26,7 @@ func _physics_process(delta):
 	
 	var direction = -1 if target < position.x else 1
 	velocity.x = direction * speed
+	$Sprite.flip_h = direction < 0
 	move_and_slide()
 
 func die():

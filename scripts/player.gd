@@ -16,9 +16,7 @@ func _physics_process(delta):
 	else: coyote_timer = 0
 	
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or coyote_timer < coyote_time):
-		jumping = true
-		Particles.spawn_particle("jump", self)
-		Camera.shake(0.05, 0.5)
+		jump(jump_velocity)
 	if jumping and jump_timer < jump_time:
 		velocity.y = -jump_velocity
 		jump_timer += delta
@@ -36,6 +34,12 @@ func _physics_process(delta):
 		$LeftArm.position.x = -6
 	
 	move_and_slide()
+
+func jump(force):
+	jumping = true
+	Particles.spawn_particle("jump", self)
+	Camera.shake(0.05, 0.5)
+	velocity.y = -force
 
 func die():
 	Particles.spawn_particle("explosion", self)
