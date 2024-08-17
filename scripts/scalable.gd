@@ -1,5 +1,7 @@
 extends Node2D
 
+signal scaled(decrease)
+
 @export var multiplier: float
 @export var time: float
 var start_scale: Vector2
@@ -19,3 +21,4 @@ func run(decrease):
 	tween.tween_property($"..", "scale", new_scale, time) \
 		.set_ease(Tween.EASE_IN_OUT) \
 		.set_trans(Tween.TRANS_SINE)
+	scaled.emit(decrease)

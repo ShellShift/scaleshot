@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckcvi56od42ev"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_ro87f"]
+[ext_resource type="Texture2D" uid="uid://bgkv8bi0symig" path="res://graphics/sprites/enemy.png" id="1_shouh"]
+[ext_resource type="PackedScene" uid="uid://bi5q26obd5axc" path="res://prefabs/scalable.tscn" id="2_y6lj8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wl80l"]
+size = Vector2(32, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjnpx"]
+size = Vector2(32, 1)
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_ro87f")
+speed = 57.0
+speed_modifiers = Vector2(1.5, 2)
+leftTarget = -5.0
+rightTarget = 5.0
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_shouh")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_wl80l")
+
+[node name="Head" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Head"]
+position = Vector2(0, -15.5)
+shape = SubResource("RectangleShape2D_cjnpx")
+
+[node name="Body" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Body"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_wl80l")
+
+[node name="Scalable" parent="." instance=ExtResource("2_y6lj8")]
+
+[connection signal="body_entered" from="Head" to="." method="_on_head_area_entered"]
+[connection signal="body_entered" from="Body" to="." method="_on_body_area_entered"]
+[connection signal="scaled" from="Scalable" to="." method="_on_scaled"]

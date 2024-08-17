@@ -4,4 +4,5 @@
 
 [node name="Scalable" type="Node2D"]
 script = ExtResource("1_jll26")
+multiplier = 2.0
 time = 1.0
