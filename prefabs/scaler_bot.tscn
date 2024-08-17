@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://d37odq7pt4d7j"]
+
+[ext_resource type="PackedScene" uid="uid://ckcvi56od42ev" path="res://prefabs/enemy.tscn" id="1_nj7ey"]
+[ext_resource type="Texture2D" uid="uid://bfb0x5ow0ym5f" path="res://graphics/sprites/scalerbot.png" id="2_3ljg6"]
+[ext_resource type="Script" path="res://scripts/scaler_bot.gd" id="2_l2c54"]
+[ext_resource type="PackedScene" uid="uid://lra0cua3vyi2" path="res://prefabs/scaler_bullet.tscn" id="3_74h2i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x4g2c"]
+size = Vector2(13, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbrou"]
+size = Vector2(26, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4uik"]
+size = Vector2(26, 28)
+
+[node name="ScalerBot" instance=ExtResource("1_nj7ey")]
+script = ExtResource("2_l2c54")
+bullet_prefab = ExtResource("3_74h2i")
+fire_rate = 2.5
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("2_3ljg6")
+
+[node name="CollisionShape" parent="." index="1"]
+position = Vector2(-0.5, 2)
+shape = SubResource("RectangleShape2D_x4g2c")
+
+[node name="CollisionShape" parent="Head" index="0"]
+position = Vector2(0, -12.5)
+shape = SubResource("RectangleShape2D_bbrou")
+
+[node name="CollisionShape" parent="Body" index="0"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_v4uik")
+
+[node name="FirePoint" type="Marker2D" parent="." index="5"]
+position = Vector2(8, -8)

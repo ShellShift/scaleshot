@@ -20,3 +20,5 @@ shape = SubResource("RectangleShape2D_0pt6n")
 
 [node name="Scalable" parent="." instance=ExtResource("2_cy3a5")]
 multiplier = 1.5
+
+[connection signal="scaled" from="Scalable" to="." method="_on_scaled"]

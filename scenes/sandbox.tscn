@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://py60dolkwny4"]
+[gd_scene load_steps=11 format=3 uid="uid://py60dolkwny4"]
 
 [ext_resource type="PackedScene" uid="uid://bvvc8whmt1b3" path="res://prefabs/player.tscn" id="1_2y8fg"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_tksrh"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ca8e35evhwyrf" path="res://prefabs/cloud.tscn" id="6_dtw5y"]
 [ext_resource type="PackedScene" uid="uid://chgas1ig1icyb" path="res://prefabs/box.tscn" id="7_eqdqp"]
 [ext_resource type="PackedScene" uid="uid://cprewi4l3gpuq" path="res://prefabs/button.tscn" id="8_rj26c"]
+[ext_resource type="PackedScene" uid="uid://d37odq7pt4d7j" path="res://prefabs/scaler_bot.tscn" id="9_ucacn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ssp7k"]
 size = Vector2(32, 32)
@@ -26,10 +27,13 @@ target = NodePath("../Player")
 position = Vector2(-128, 41)
 target = NodePath("../Floor2")
 inverted = true
+require_scale = true
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(-64, 65)
 scale = Vector2(5, 1)
+collision_layer = 17
+collision_mask = 0
 
 [node name="Sprite" type="Sprite2D" parent="Floor"]
 texture = ExtResource("2_2aclb")
@@ -42,6 +46,8 @@ shape = SubResource("RectangleShape2D_ssp7k")
 [node name="Floor2" type="StaticBody2D" parent="."]
 position = Vector2(120, 65)
 scale = Vector2(1.5, 1)
+collision_layer = 17
+collision_mask = 0
 
 [node name="Sprite" type="Sprite2D" parent="Floor2"]
 texture = ExtResource("2_2aclb")
@@ -59,3 +65,6 @@ position = Vector2(137, 20)
 
 [node name="Box" parent="." instance=ExtResource("7_eqdqp")]
 position = Vector2(-98, 0)
+
+[node name="ScalerBot" parent="." instance=ExtResource("9_ucacn")]
+position = Vector2(-31, -13)
