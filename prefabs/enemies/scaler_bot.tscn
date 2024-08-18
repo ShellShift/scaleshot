@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://d37odq7pt4d7j"]
 
-[ext_resource type="PackedScene" uid="uid://ckcvi56od42ev" path="res://prefabs/enemy.tscn" id="1_nj7ey"]
+[ext_resource type="PackedScene" uid="uid://ckcvi56od42ev" path="res://prefabs/enemies/enemy.tscn" id="1_nj7ey"]
 [ext_resource type="Texture2D" uid="uid://bfb0x5ow0ym5f" path="res://graphics/sprites/scalerbot.png" id="2_3ljg6"]
 [ext_resource type="Script" path="res://scripts/enemies/scaler_bot.gd" id="2_l2c54"]
-[ext_resource type="PackedScene" uid="uid://lra0cua3vyi2" path="res://prefabs/scaler_bullet.tscn" id="3_74h2i"]
+[ext_resource type="PackedScene" uid="uid://lra0cua3vyi2" path="res://prefabs/gameplay/scaler_bullet.tscn" id="3_74h2i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x4g2c"]
 size = Vector2(13, 28)

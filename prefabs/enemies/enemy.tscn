@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/enemies/enemy.gd" id="1_ro87f"]
 [ext_resource type="Texture2D" uid="uid://bgkv8bi0symig" path="res://graphics/sprites/enemy.png" id="1_shouh"]
-[ext_resource type="PackedScene" uid="uid://bi5q26obd5axc" path="res://prefabs/scalable.tscn" id="2_y6lj8"]
+[ext_resource type="PackedScene" uid="uid://bi5q26obd5axc" path="res://prefabs/gameplay/scalable.tscn" id="2_y6lj8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wl80l"]
 size = Vector2(30, 31)

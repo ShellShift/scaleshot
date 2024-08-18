@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bphn7i6if1ycm"]
 
-[ext_resource type="PackedScene" uid="uid://ckcvi56od42ev" path="res://prefabs/enemy.tscn" id="1_aqv31"]
+[ext_resource type="PackedScene" uid="uid://ckcvi56od42ev" path="res://prefabs/enemies/enemy.tscn" id="1_aqv31"]
 [ext_resource type="Texture2D" uid="uid://bgyna5qlfaasq" path="res://graphics/sprites/bulk.png" id="2_5lhdy"]
 [ext_resource type="Script" path="res://scripts/enemies/bulk.gd" id="2_cqxkx"]
 

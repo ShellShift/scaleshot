@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://ca8e35evhwyrf"]
 
-[ext_resource type="PackedScene" uid="uid://ckcvi56od42ev" path="res://prefabs/enemy.tscn" id="1_5o1d1"]
+[ext_resource type="PackedScene" uid="uid://ckcvi56od42ev" path="res://prefabs/enemies/enemy.tscn" id="1_5o1d1"]
 [ext_resource type="Script" path="res://scripts/enemies/cloud.gd" id="2_8btau"]
 [ext_resource type="Texture2D" uid="uid://bw3yitivvebmu" path="res://graphics/sprites/cloud.png" id="2_ehltg"]
 

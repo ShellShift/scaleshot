@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cylxnxskfh1o7" path="res://graphics/sprites/player_arm.png" id="1_bpn5o"]
 [ext_resource type="Script" path="res://scripts/gameplay/scaler.gd" id="1_nghk7"]
 [ext_resource type="Texture2D" uid="uid://eu8glqxb4fo" path="res://graphics/sprites/square.png" id="2_e5qu6"]
-[ext_resource type="PackedScene" uid="uid://lra0cua3vyi2" path="res://prefabs/scaler_bullet.tscn" id="2_tqv8e"]
+[ext_resource type="PackedScene" uid="uid://lra0cua3vyi2" path="res://prefabs/gameplay/scaler_bullet.tscn" id="2_tqv8e"]
 [ext_resource type="Texture2D" uid="uid://bnhi3aafu4s0l" path="res://graphics/sprites/scaler.png" id="3_i7qu7"]
 
 [node name="Scaler" type="Node2D"]

@@ -1,4 +1,4 @@
-extends Control
+class_name UIManager extends Control
 
 @export var active: Control
 @export var time: float

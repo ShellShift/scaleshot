@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://b0ff8y0caluxd" path="res://graphics/ui_theme.tres" id="1_mblt6"]
 [ext_resource type="Script" path="res://scripts/interface/ui_manager.gd" id="2_twiw5"]
 [ext_resource type="Script" path="res://scripts/interface/level_select.gd" id="3_fecuw"]
-[ext_resource type="PackedScene" uid="uid://nt64rlir5ahd" path="res://prefabs/settings.tscn" id="4_jvmoj"]
+[ext_resource type="PackedScene" uid="uid://nt64rlir5ahd" path="res://prefabs/interface/settings.tscn" id="4_jvmoj"]
 [ext_resource type="Texture2D" uid="uid://do57nq2grimwt" path="res://graphics/sprites/heart.png" id="5_7ti8w"]
 [ext_resource type="Script" path="res://scripts/interface/about.gd" id="5_w23r8"]
 [ext_resource type="Texture2D" uid="uid://emni0sc0naek" path="res://graphics/sprites/shellshift.png" id="6_gbxkg"]

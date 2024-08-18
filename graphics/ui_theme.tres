@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=18 format=3 uid="uid://b0ff8y0caluxd"]
+[gd_resource type="Theme" load_steps=19 format=3 uid="uid://b0ff8y0caluxd"]
 
 [ext_resource type="FontFile" uid="uid://cxb23l0s1hc3u" path="res://graphics/PixelifySans.ttf" id="1_ocjw2"]
 [ext_resource type="Texture2D" uid="uid://dr2fljgf0f1xu" path="res://graphics/sprites/check.png" id="2_0l16k"]
@@ -116,6 +116,13 @@ border_width_bottom = 1
 border_color = Color(1, 1, 1, 1)
 corner_detail = 6
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_627md"]
+bg_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [resource]
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_focus_color = Color(0.864674, 0.864676, 0.864675, 1)
@@ -143,3 +150,4 @@ HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_qqbk5")
 HSlider/styles/slider = SubResource("StyleBoxFlat_n84f3")
 Label/font_sizes/font_size = 48
 Label/fonts/font = ExtResource("1_ocjw2")
+Panel/styles/panel = SubResource("StyleBoxFlat_627md")
