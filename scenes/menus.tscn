@@ -1,0 +1,224 @@
+[gd_scene load_steps=3 format=3 uid="uid://hunfm6n52k0r"]
+
+[ext_resource type="Theme" uid="uid://b0ff8y0caluxd" path="res://graphics/ui_theme.tres" id="1_mblt6"]
+[ext_resource type="Script" path="res://scripts/interface/ui_manager.gd" id="2_twiw5"]
+
+[node name="Menus" type="Control" node_paths=PackedStringArray("active")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_mblt6")
+script = ExtResource("2_twiw5")
+active = NodePath("Main")
+time = 0.3
+
+[node name="Main" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Main"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -237.5
+offset_top = 80.0
+offset_right = 237.5
+offset_bottom = 196.0
+grow_horizontal = 2
+rotation = 0.174533
+theme_override_font_sizes/font_size = 96
+text = "Scaleshot"
+horizontal_alignment = 1
+
+[node name="Play" type="Button" parent="Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.5
+offset_top = -62.25
+offset_right = 49.5
+offset_bottom = 2.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play"
+
+[node name="Settings" type="Button" parent="Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.5
+offset_top = 49.75
+offset_right = 106.5
+offset_bottom = 114.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "Settings"
+
+[node name="About" type="Button" parent="Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = 161.75
+offset_right = 73.0
+offset_bottom = 226.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "About"
+
+[node name="Quit" type="Button" parent="Main"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -98.0
+offset_right = -82.0
+offset_bottom = -55.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+
+[node name="LevelSelect" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="LevelSelect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -207.5
+offset_top = 105.0
+offset_right = 207.5
+offset_bottom = 221.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 96
+text = "Level Select"
+horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="LevelSelect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -98.0
+offset_right = -82.0
+offset_bottom = -55.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[node name="Settings" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Settings"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -207.5
+offset_top = 105.0
+offset_right = 207.5
+offset_bottom = 221.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 96
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="Settings"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -98.0
+offset_right = -82.0
+offset_bottom = -55.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[node name="About" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="About"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -141.5
+offset_top = 107.0
+offset_right = 141.5
+offset_bottom = 223.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 96
+text = "About"
+horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="About"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -98.0
+offset_right = -82.0
+offset_bottom = -55.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[connection signal="pressed" from="Main/Play" to="." method="enable" binds= ["LevelSelect"]]
+[connection signal="pressed" from="Main/Settings" to="." method="enable" binds= ["Settings"]]
+[connection signal="pressed" from="Main/About" to="." method="enable" binds= ["About"]]
+[connection signal="pressed" from="LevelSelect/Back" to="." method="enable" binds= ["Main"]]
+[connection signal="pressed" from="Settings/Back" to="." method="enable" binds= ["Main"]]
+[connection signal="pressed" from="About/Back" to="." method="enable" binds= ["Main"]]

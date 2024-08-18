@@ -17,8 +17,8 @@ func _process(delta):
 		fire_timer = 0
 		decrease = !decrease
 	if target < position.x:
-		$FirePoint.position.x = -8
+		$FirePoint.position.x = -9
 		$FirePoint.rotation = PI
 	else:
-		$FirePoint.position.x = 8
+		$FirePoint.position.x = 9
 		$FirePoint.rotation = 0

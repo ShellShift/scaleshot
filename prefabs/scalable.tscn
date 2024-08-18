@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bi5q26obd5axc"]
 
-[ext_resource type="Script" path="res://scripts/scalable.gd" id="1_jll26"]
+[ext_resource type="Script" path="res://scripts/gameplay/scalable.gd" id="1_jll26"]
 
 [node name="Scalable" type="Node2D"]
 script = ExtResource("1_jll26")
