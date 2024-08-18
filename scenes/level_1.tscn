@@ -1,21 +1,18 @@
-[gd_scene load_steps=15 format=3 uid="uid://py60dolkwny4"]
+[gd_scene load_steps=14 format=3 uid="uid://py60dolkwny4"]
 
 [ext_resource type="PackedScene" uid="uid://bvvc8whmt1b3" path="res://prefabs/gameplay/player.tscn" id="1_2y8fg"]
 [ext_resource type="Script" path="res://scripts/interface/pause.gd" id="1_3o163"]
 [ext_resource type="Script" path="res://scripts/managers/camera.gd" id="1_tksrh"]
-[ext_resource type="Texture2D" uid="uid://eu8glqxb4fo" path="res://graphics/sprites/square.png" id="2_2aclb"]
 [ext_resource type="Theme" uid="uid://b0ff8y0caluxd" path="res://graphics/ui_theme.tres" id="2_aq7mb"]
 [ext_resource type="PackedScene" uid="uid://nt64rlir5ahd" path="res://prefabs/interface/settings.tscn" id="3_byijp"]
-[ext_resource type="PackedScene" uid="uid://bi5q26obd5axc" path="res://prefabs/gameplay/scalable.tscn" id="3_qvanu"]
 [ext_resource type="PackedScene" uid="uid://bphn7i6if1ycm" path="res://prefabs/enemies/bulk.tscn" id="5_ajnwy"]
 [ext_resource type="PackedScene" uid="uid://ca8e35evhwyrf" path="res://prefabs/enemies/cloud.tscn" id="6_dtw5y"]
 [ext_resource type="PackedScene" uid="uid://cqbaos78ynt0c" path="res://prefabs/gameplay/door.tscn" id="6_h2uwk"]
+[ext_resource type="PackedScene" uid="uid://cr1nljqhde6om" path="res://prefabs/gameplay/key.tscn" id="6_ix4vp"]
 [ext_resource type="PackedScene" uid="uid://chgas1ig1icyb" path="res://prefabs/gameplay/box.tscn" id="7_eqdqp"]
 [ext_resource type="PackedScene" uid="uid://cprewi4l3gpuq" path="res://prefabs/gameplay/button.tscn" id="8_rj26c"]
 [ext_resource type="PackedScene" uid="uid://d37odq7pt4d7j" path="res://prefabs/enemies/scaler_bot.tscn" id="9_ucacn"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ssp7k"]
-size = Vector2(32, 32)
+[ext_resource type="TileSet" uid="uid://bcaya3oxal326" path="res://graphics/tileset.tres" id="13_atkly"]
 
 [node name="Sandbox" type="Node2D"]
 
@@ -132,54 +129,49 @@ target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("1_2y8fg")]
 
-[node name="Door" parent="." instance=ExtResource("6_h2uwk")]
-position = Vector2(128, 33)
+[node name="Environment" type="Node2D" parent="."]
 
-[node name="Button" parent="." node_paths=PackedStringArray("target") instance=ExtResource("8_rj26c")]
-position = Vector2(-128, 41)
-target = NodePath("../Floor2")
-inverted = true
-require_scale = true
+[node name="Enemies" type="Node2D" parent="Environment"]
 
-[node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(-64, 65)
-scale = Vector2(5, 1)
-collision_layer = 17
-collision_mask = 0
-
-[node name="Sprite" type="Sprite2D" parent="Floor"]
-texture = ExtResource("2_2aclb")
-
-[node name="CollisionShape" type="CollisionShape2D" parent="Floor"]
-shape = SubResource("RectangleShape2D_ssp7k")
-
-[node name="Scalable" parent="Floor" instance=ExtResource("3_qvanu")]
-
-[node name="Floor2" type="StaticBody2D" parent="."]
-position = Vector2(120, 65)
-scale = Vector2(1.5, 1)
-collision_layer = 17
-collision_mask = 0
-
-[node name="Sprite" type="Sprite2D" parent="Floor2"]
-texture = ExtResource("2_2aclb")
-
-[node name="CollisionShape" type="CollisionShape2D" parent="Floor2"]
-shape = SubResource("RectangleShape2D_ssp7k")
-
-[node name="Scalable" parent="Floor2" instance=ExtResource("3_qvanu")]
-
-[node name="Bulk" parent="." instance=ExtResource("5_ajnwy")]
+[node name="Bulk" parent="Environment/Enemies" instance=ExtResource("5_ajnwy")]
 position = Vector2(-64, 0)
 
-[node name="Cloud" parent="." instance=ExtResource("6_dtw5y")]
+[node name="Cloud" parent="Environment/Enemies" instance=ExtResource("6_dtw5y")]
 position = Vector2(137, 20)
 
-[node name="Box" parent="." instance=ExtResource("7_eqdqp")]
-position = Vector2(-98, 0)
+[node name="ScalerBot" parent="Environment/Enemies" instance=ExtResource("9_ucacn")]
+position = Vector2(298, 17)
 
-[node name="ScalerBot" parent="." instance=ExtResource("9_ucacn")]
-position = Vector2(-31, -13)
+[node name="Buttons" type="Node2D" parent="Environment"]
+
+[node name="Button" parent="Environment/Buttons" node_paths=PackedStringArray("target") instance=ExtResource("8_rj26c")]
+position = Vector2(-128, 52)
+scale = Vector2(1.5, 1.5)
+target = NodePath("../../Key")
+require_scale = true
+
+[node name="Button2" parent="Environment/Buttons" node_paths=PackedStringArray("target") instance=ExtResource("8_rj26c")]
+position = Vector2(-75, 56)
+target = NodePath("../Button")
+toggle = true
+require_scale = true
+
+[node name="Box" parent="Environment" instance=ExtResource("7_eqdqp")]
+position = Vector2(-173, 33)
+
+[node name="Key" parent="Environment" node_paths=PackedStringArray("door") instance=ExtResource("6_ix4vp")]
+position = Vector2(-128, 10)
+door = NodePath("../Door")
+
+[node name="Door" parent="Environment" instance=ExtResource("6_h2uwk")]
+position = Vector2(330, 48)
+open = false
+next_level = 1
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("13_atkly")
+format = 2
+layer_0/tile_data = PackedInt32Array(327668, 65536, 1, 327669, 131072, 1, 327670, 131072, 1, 327671, 131072, 1, 327672, 131072, 1, 327673, 131072, 1, 327674, 131072, 1, 327675, 131072, 1, 327676, 131072, 1, 327677, 131072, 1, 327678, 131072, 1, 327679, 131072, 1, 262144, 131072, 1, 262145, 131072, 1, 262146, 131072, 1, 262147, 196608, 1, 327683, 196608, 2, 393219, 196608, 3, 458740, 65536, 3, 393205, 131072, 2, 393204, 65536, 2, 458741, 131072, 3, 458742, 131072, 3, 458743, 131072, 3, 458744, 131072, 3, 458745, 131072, 3, 458746, 131072, 3, 458747, 131072, 3, 458748, 131072, 3, 458749, 131072, 3, 458750, 131072, 3, 458751, 131072, 3, 393216, 131072, 3, 393217, 131072, 3, 393218, 131072, 3, 327682, 131072, 2, 327681, 131072, 2, 327680, 131072, 2, 393215, 131072, 2, 393214, 131072, 2, 393213, 131072, 2, 393212, 131072, 2, 393211, 131072, 2, 393210, 131072, 2, 393209, 131072, 2, 393208, 131072, 2, 393207, 131072, 2, 393206, 131072, 2, 262151, 131072, 1, 262150, 65536, 1, 262152, 131072, 1, 262153, 131072, 1, 262154, 196608, 1, 327686, 65536, 2, 393222, 65536, 3, 393223, 131072, 3, 393224, 131072, 3, 393225, 131072, 3, 393226, 196608, 3, 327690, 196608, 2, 327687, 131072, 2, 327688, 131072, 2, 327689, 131072, 2, 262159, 131072, 1, 262160, 131072, 1, 262161, 131072, 1, 262162, 131072, 1, 262163, 131072, 1, 262164, 131072, 1, 262165, 196608, 1, 393231, 131072, 3, 393237, 196608, 3, 327701, 196608, 2, 327695, 131072, 2, 393232, 131072, 3, 393233, 131072, 3, 393234, 131072, 3, 393235, 131072, 3, 393236, 131072, 3, 327696, 131072, 2, 327697, 131072, 2, 327698, 131072, 2, 327699, 131072, 2, 327700, 131072, 2, 262158, 65536, 1, 393230, 65536, 3, 327694, 65536, 2)
 
 [connection signal="pressed" from="CanvasLayer/PauseMenu/Main/Resume" to="CanvasLayer/PauseMenu" method="toggle_pause"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/Main/Settings" to="CanvasLayer/PauseMenu" method="enable" binds= ["Settings"]]

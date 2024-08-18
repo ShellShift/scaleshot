@@ -1,4 +1,4 @@
-extends Area2D
+class_name Door extends Area2D
 
 @export var open: bool
 @export var next_level: int
@@ -15,6 +15,7 @@ func open_door(no_effects = false):
 	Camera.shake()
 
 func _on_body_entered(body):
+	if !open: return
 	Scenes.load("level_%d" % next_level)
 	Particles.spawn_particle("explosion", body)
 	Particles.spawn_particle("explosion", self)

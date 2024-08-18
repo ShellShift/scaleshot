@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://hunfm6n52k0r"]
+[gd_scene load_steps=18 format=3 uid="uid://hunfm6n52k0r"]
 
 [ext_resource type="Theme" uid="uid://b0ff8y0caluxd" path="res://graphics/ui_theme.tres" id="1_mblt6"]
 [ext_resource type="Script" path="res://scripts/interface/ui_manager.gd" id="2_twiw5"]
 [ext_resource type="Script" path="res://scripts/interface/level_select.gd" id="3_fecuw"]
+[ext_resource type="Texture2D" uid="uid://bnhi3aafu4s0l" path="res://graphics/sprites/scaler.png" id="3_tq40j"]
+[ext_resource type="Texture2D" uid="uid://eu8glqxb4fo" path="res://graphics/sprites/square.png" id="4_j1tgw"]
 [ext_resource type="PackedScene" uid="uid://nt64rlir5ahd" path="res://prefabs/interface/settings.tscn" id="4_jvmoj"]
 [ext_resource type="Texture2D" uid="uid://do57nq2grimwt" path="res://graphics/sprites/heart.png" id="5_7ti8w"]
 [ext_resource type="Script" path="res://scripts/interface/about.gd" id="5_w23r8"]
@@ -44,6 +46,139 @@ Button/styles/hover = SubResource("StyleBoxFlat_lv7tg")
 Button/styles/normal = SubResource("StyleBoxFlat_313nr")
 Button/styles/pressed = SubResource("StyleBoxFlat_3l2o0")
 
+[sub_resource type="Animation" id="Animation_rg0ns"]
+resource_name = "load"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scaler:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector2(480, 57), Vector2(256, 57)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scaler:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Scaler:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [0.0, -0.436332]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Title:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.8, 1.2),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector2(339, 0), Vector2(378.5, 106)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Title:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.8, 1.2),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rbvfj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scaler:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(276, 57)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scaler:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Scaler:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Title:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(378.5, 106)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Title:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sjw7a"]
+_data = {
+"RESET": SubResource("Animation_rbvfj"),
+"load": SubResource("Animation_rg0ns")
+}
+
 [node name="Menus" type="Control" node_paths=PackedStringArray("active")]
 layout_mode = 3
 anchors_preset = 15
@@ -55,6 +190,15 @@ theme = ExtResource("1_mblt6")
 script = ExtResource("2_twiw5")
 active = NodePath("Main")
 time = 0.3
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.141176, 0.141176, 0.141176, 1)
 
 [node name="Main" type="Control" parent="."]
 layout_mode = 1
@@ -69,12 +213,13 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -237.5
-offset_top = 80.0
-offset_right = 237.5
-offset_bottom = 196.0
+offset_left = -197.5
+offset_top = 106.0
+offset_right = 277.501
+offset_bottom = 222.0
 grow_horizontal = 2
-rotation = 0.174533
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(237, 58)
 theme_override_font_sizes/font_size = 96
 text = "Scaleshot"
 horizontal_alignment = 1
@@ -139,6 +284,30 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 32
 text = "Quit"
+
+[node name="Scaler" type="TextureRect" parent="Main"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 57.0
+offset_right = -108.001
+offset_bottom = 249.0
+grow_horizontal = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(96, 96)
+texture = ExtResource("3_tq40j")
+
+[node name="FirePoint" type="TextureRect" parent="Main/Scaler"]
+modulate = Color(0.537255, 0.72549, 0.231373, 1)
+layout_mode = 0
+offset_left = 144.0
+offset_top = 54.0
+offset_right = 156.0
+offset_bottom = 66.0
+texture = ExtResource("4_j1tgw")
+expand_mode = 1
 
 [node name="LevelSelect" type="Control" parent="."]
 visible = false
@@ -290,6 +459,13 @@ offset_bottom = 179.0
 grow_vertical = 2
 rotation = -0.436332
 texture = ExtResource("6_gbxkg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Main")
+libraries = {
+"": SubResource("AnimationLibrary_sjw7a")
+}
+autoplay = "load"
 
 [connection signal="pressed" from="Main/Play" to="." method="enable" binds= ["LevelSelect"]]
 [connection signal="pressed" from="Main/Settings" to="." method="enable" binds= ["Settings"]]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvvc8whmt1b3"]
+[gd_scene load_steps=6 format=3 uid="uid://bvvc8whmt1b3"]
 
 [ext_resource type="Script" path="res://scripts/gameplay/player.gd" id="1_bpvcv"]
 [ext_resource type="Texture2D" uid="uid://ckp7rndy5v82v" path="res://graphics/sprites/player.png" id="2_tnosk"]
@@ -6,10 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bgsdyjqu4d8ti" path="res://prefabs/gameplay/scaler.tscn" id="4_toxcj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xc0a8"]
-size = Vector2(8, 20)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_2br1j"]
-radius = 6.0
+size = Vector2(8, 32)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -28,11 +25,7 @@ position = Vector2(-6, 2)
 texture = ExtResource("3_0nwn4")
 
 [node name="BodyShape" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 6)
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_xc0a8")
-
-[node name="HeadShape" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -10)
-shape = SubResource("CircleShape2D_2br1j")
 
 [node name="Scaler" parent="." instance=ExtResource("4_toxcj")]
