@@ -13,7 +13,8 @@ func _process(delta):
 		shake_time -= delta
 		offset = Vector2(randf_range(-shake_strength, shake_strength), randf_range(-shake_strength, shake_strength))
 	else: offset = Vector2.ZERO
-	position = target.position
+	if is_instance_valid(target):
+		position = target.position
 
 static func shake(shake_time = 0.1, shake_strength = 1):
 	camera.shake_time = shake_time

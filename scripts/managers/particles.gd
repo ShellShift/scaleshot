@@ -1,6 +1,7 @@
 extends Node
 
 func spawn_particle(particle_name, parent, color = null):
+	if !Settings.particles: return
 	var particle = load("res://prefabs/particles/%s.tscn" % particle_name).instantiate()
 	particle.position = parent.global_position
 	particle.rotation = parent.global_rotation

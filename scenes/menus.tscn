@@ -1,7 +1,48 @@
-[gd_scene load_steps=3 format=3 uid="uid://hunfm6n52k0r"]
+[gd_scene load_steps=13 format=3 uid="uid://hunfm6n52k0r"]
 
 [ext_resource type="Theme" uid="uid://b0ff8y0caluxd" path="res://graphics/ui_theme.tres" id="1_mblt6"]
 [ext_resource type="Script" path="res://scripts/interface/ui_manager.gd" id="2_twiw5"]
+[ext_resource type="Script" path="res://scripts/interface/level_select.gd" id="3_fecuw"]
+[ext_resource type="PackedScene" uid="uid://nt64rlir5ahd" path="res://prefabs/settings.tscn" id="4_jvmoj"]
+[ext_resource type="Texture2D" uid="uid://do57nq2grimwt" path="res://graphics/sprites/heart.png" id="5_7ti8w"]
+[ext_resource type="Script" path="res://scripts/interface/about.gd" id="5_w23r8"]
+[ext_resource type="Texture2D" uid="uid://emni0sc0naek" path="res://graphics/sprites/shellshift.png" id="6_gbxkg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_16iv1"]
+bg_color = Color(1, 1, 1, 0)
+border_width_bottom = 5
+border_color = Color(1, 0.513726, 0, 1)
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lv7tg"]
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_313nr"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3l2o0"]
+bg_color = Color(0.412152, 0.412152, 0.412152, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Theme" id="Theme_0cuyu"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/styles/focus = SubResource("StyleBoxFlat_16iv1")
+Button/styles/hover = SubResource("StyleBoxFlat_lv7tg")
+Button/styles/normal = SubResource("StyleBoxFlat_313nr")
+Button/styles/pressed = SubResource("StyleBoxFlat_3l2o0")
 
 [node name="Menus" type="Control" node_paths=PackedStringArray("active")]
 layout_mode = 3
@@ -107,6 +148,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("3_fecuw")
+level_count = 10
 
 [node name="Title" type="Label" parent="LevelSelect"]
 layout_mode = 1
@@ -138,44 +181,29 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 32
 text = "Back"
 
-[node name="Settings" type="Control" parent="."]
-visible = false
+[node name="GridContainer" type="GridContainer" parent="LevelSelect"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -100.0
+offset_right = 250.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_0cuyu")
+columns = 5
 
-[node name="Title" type="Label" parent="Settings"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -207.5
-offset_top = 105.0
-offset_right = 207.5
-offset_bottom = 221.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 96
-text = "Settings"
-horizontal_alignment = 1
+[node name="Template" type="Button" parent="LevelSelect/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+text = "1"
 
-[node name="Back" type="Button" parent="Settings"]
+[node name="Settings" parent="." instance=ExtResource("4_jvmoj")]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -152.0
-offset_top = -98.0
-offset_right = -82.0
-offset_bottom = -55.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 32
-text = "Back"
 
 [node name="About" type="Control" parent="."]
 visible = false
@@ -185,6 +213,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("5_w23r8")
+time = 0.5
 
 [node name="Title" type="Label" parent="About"]
 layout_mode = 1
@@ -216,9 +246,59 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 32
 text = "Back"
 
+[node name="Label" type="Label" parent="About"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 73.0
+offset_top = 219.0
+offset_right = -73.0
+offset_bottom = -134.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Scaleshot is a game made in 4 days for the GMTK Game Jam 2024.
+Shoot things around you to scale them up and down, to complete puzzles and finish the levels.
+
+Made by ShellShift"
+autowrap_mode = 2
+
+[node name="Heart" type="TextureRect" parent="About"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 346.0
+offset_top = 16.0
+offset_right = 474.0
+offset_bottom = 144.0
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("5_7ti8w")
+
+[node name="Shell" type="TextureRect" parent="About"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 333.0
+offset_top = 51.0
+offset_right = 461.0
+offset_bottom = 179.0
+grow_vertical = 2
+rotation = -0.436332
+texture = ExtResource("6_gbxkg")
+
 [connection signal="pressed" from="Main/Play" to="." method="enable" binds= ["LevelSelect"]]
 [connection signal="pressed" from="Main/Settings" to="." method="enable" binds= ["Settings"]]
 [connection signal="pressed" from="Main/About" to="." method="enable" binds= ["About"]]
+[connection signal="pressed" from="Main/Quit" to="." method="quit" binds= [true]]
 [connection signal="pressed" from="LevelSelect/Back" to="." method="enable" binds= ["Main"]]
 [connection signal="pressed" from="Settings/Back" to="." method="enable" binds= ["Main"]]
 [connection signal="pressed" from="About/Back" to="." method="enable" binds= ["Main"]]
+[connection signal="mouse_entered" from="About/Shell" to="About" method="show_heart"]
+[connection signal="mouse_exited" from="About/Shell" to="About" method="hide_heart"]
+
+[editable path="Settings"]

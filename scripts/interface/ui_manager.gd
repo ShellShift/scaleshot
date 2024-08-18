@@ -17,3 +17,7 @@ func enable(control_name):
 	await tween.finished
 	active.hide()
 	active = control
+
+func quit(game):
+	if game: get_tree().quit()
+	Scenes.load("menus")

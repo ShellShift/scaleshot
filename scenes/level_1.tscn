@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://py60dolkwny4"]
 
 [ext_resource type="PackedScene" uid="uid://bvvc8whmt1b3" path="res://prefabs/player.tscn" id="1_2y8fg"]
-[ext_resource type="Script" path="res://scripts/effects/camera.gd" id="1_tksrh"]
+[ext_resource type="Script" path="res://scripts/managers/camera.gd" id="1_tksrh"]
 [ext_resource type="Texture2D" uid="uid://eu8glqxb4fo" path="res://graphics/sprites/square.png" id="2_2aclb"]
 [ext_resource type="PackedScene" uid="uid://bi5q26obd5axc" path="res://prefabs/scalable.tscn" id="3_qvanu"]
 [ext_resource type="PackedScene" uid="uid://bphn7i6if1ycm" path="res://prefabs/bulk.tscn" id="5_ajnwy"]

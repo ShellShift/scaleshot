@@ -40,6 +40,7 @@ func _physics_process(delta):
 			var body = col.get_collider()
 			if body is Box:
 				body.velocity.x = col.get_normal().x * -push
+	if position.y > 150: die()
 
 func jump(force):
 	jumping = true
@@ -50,4 +51,5 @@ func jump(force):
 func die():
 	Particles.spawn_particle("explosion", self)
 	Camera.shake()
-	get_tree().reload_current_scene()
+	queue_free()
+	Scenes.reload()
