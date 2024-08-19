@@ -1,8 +1,12 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bcaya3oxal326"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://bcaya3oxal326"]
 
 [ext_resource type="Texture2D" uid="uid://dxpuhgd08aplf" path="res://graphics/sprites/tilemap.png" id="1_7rfd2"]
+[ext_resource type="PackedScene" uid="uid://bgj83aq51o75n" path="res://prefabs/tileset/block.tscn" id="2_ryoan"]
+[ext_resource type="PackedScene" uid="uid://dt4jquxbnd5te" path="res://prefabs/tileset/block2.tscn" id="10_gk60e"]
+[ext_resource type="PackedScene" uid="uid://28gv52a72sl8" path="res://prefabs/tileset/block3.tscn" id="11_7tkka"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ss0uk"]
+resource_name = "NonScalable"
 texture = ExtResource("1_7rfd2")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -47,7 +51,6 @@ texture = ExtResource("1_7rfd2")
 2:2/0 = 0
 2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:2/0/physics_layer_0/angular_velocity = 0.0
-2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:2/0 = 0
 3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:2/0/physics_layer_0/angular_velocity = 0.0
@@ -69,6 +72,13 @@ texture = ExtResource("1_7rfd2")
 3:3/0/physics_layer_0/angular_velocity = 0.0
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_gupr3"]
+resource_name = "Scalable"
+scenes/1/scene = ExtResource("2_ryoan")
+scenes/2/scene = ExtResource("10_gk60e")
+scenes/3/scene = ExtResource("11_7tkka")
+
 [resource]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ss0uk")
+sources/2 = SubResource("TileSetScenesCollectionSource_gupr3")

@@ -11,7 +11,7 @@ var collider: CollisionShape2D
 func _ready():
 	if is_instance_valid(target) and target.has_node("CollisionShape"):
 		collider = target.get_node("CollisionShape")
-	set_active(inverted)
+	if !inverted: set_active(false)
 	$Sprite.frame = 0
 
 func set_active(enabled):
