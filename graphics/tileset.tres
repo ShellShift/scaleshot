@@ -79,6 +79,6 @@ scenes/2/scene = ExtResource("10_gk60e")
 scenes/3/scene = ExtResource("11_7tkka")
 
 [resource]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 17
 sources/0 = SubResource("TileSetAtlasSource_ss0uk")
 sources/2 = SubResource("TileSetScenesCollectionSource_gupr3")

@@ -17,7 +17,7 @@ Can be deactivated by jumping on their heads. They become faster if their scale 
 Non-moving to medium speed, scales things around it every few seconds.
 
 **Cloud**  
-Medium speed, floats around, and becomes a jump pad if the player jumps on top of it.
+Medium speed, floats around, makes the player jump when player jumps on its head.
 
 **Bulk**  
 Slow, slightly larger than other robots, and has a shield that can be deactivated by reducing its scale.

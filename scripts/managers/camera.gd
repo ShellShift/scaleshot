@@ -17,5 +17,6 @@ func _process(delta):
 		position = target.position
 
 static func shake(time = 0.1, strength = 1.0):
+	if !Settings.camera_shake: return
 	camera.shake_time = time
 	camera.shake_strength = strength

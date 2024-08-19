@@ -25,9 +25,6 @@ position_smoothing_enabled = true
 script = ExtResource("4_5b2x3")
 target = NodePath("../Player")
 
-[node name="Player" parent="." instance=ExtResource("5_wkmr1")]
-position = Vector2(-111, 0)
-
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="Enemies" type="Node2D" parent="Environment"]
@@ -75,6 +72,10 @@ door = NodePath("../Door")
 [node name="Door" parent="Environment" instance=ExtResource("11_qgau8")]
 position = Vector2(272, 16)
 open = false
+next_level = 3
+
+[node name="Player" parent="." instance=ExtResource("5_wkmr1")]
+position = Vector2(-111, 0)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("14_wucxc")

@@ -24,3 +24,4 @@ func _process(delta):
 	else:
 		$FirePoint.position.x = 9
 		$FirePoint.rotation = 0
+	super._process(delta)

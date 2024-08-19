@@ -9,6 +9,8 @@ class_name Enemy extends CharacterBody2D
 @onready var animation = $AnimationPlayer
 var start_speed: float
 var target: float
+var stepped_on_head: bool
+var player_collided: Player
 
 func _ready():
 	start_speed = speed
@@ -48,11 +50,17 @@ func die():
 
 func _on_head_area_entered(body):
 	if body is Player:
-		die()
+		stepped_on_head = true
 
 func _on_body_area_entered(body):
 	if body is Player:
-		body.die()
+		player_collided = body
+
+func _process(_delta):
+	if stepped_on_head:
+		die()
+	elif is_instance_valid(player_collided):
+		player_collided.die()
 
 func _on_scaled(decrease):
 	var tween = create_tween()

@@ -27,7 +27,7 @@ func play_music(audio):
 			tween.tween_property(music_player, "volume_db", -80, time)
 		player = music_player
 	else: player = AudioStreamPlayer2D.new()
-	var stream = load("res://audio/%s.mp3" % audio)
+	var stream = load("res://audio/%s.wav" % audio)
 	player.stream = stream
 	player.bus = "Music"
 	player.volume_db = -80
