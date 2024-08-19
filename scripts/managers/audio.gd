@@ -3,7 +3,6 @@ extends Node
 @export var time: float
 var music: String
 var music_player: AudioStreamPlayer2D
-var queue = []
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -15,10 +14,10 @@ func play(audio, parent = null):
 	player.pitch_scale = randf_range(1, 2)
 	player.stream = stream
 	player.bus = "SFX"
+	player.autoplay = true
 	if parent: get_tree().current_scene.call_deferred("add_child", player)
 	else: call_deferred("add_child", player)
 	player.finished.connect(func(): player.queue_free())
-	queue.push_back(player)
 
 func play_music(audio):
 	var tween = create_tween()
@@ -32,13 +31,8 @@ func play_music(audio):
 	player.stream = stream
 	player.bus = "Music"
 	player.volume_db = -80
+	player.autoplay = true
 	tween.tween_property(player, "volume_db", 0, time)
 	if player != music_player: call_deferred("add_child", player)
 	music_player = player
 	music = audio
-	queue.push_back(music_player)
-
-func _process(_delta):
-	for player in queue:
-		player.play()
-	queue = []

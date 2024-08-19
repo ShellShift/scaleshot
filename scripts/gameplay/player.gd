@@ -5,6 +5,7 @@ class_name Player extends CharacterBody2D
 @export var coyote_time: float
 @export var jump_time: float
 @export var push: float
+@onready var animation = $AnimationPlayer
 var coyote_timer: float
 var jump_timer: float
 var jumping: bool
@@ -30,9 +31,14 @@ func _physics_process(delta):
 	if direction < 0:
 		$Sprite.flip_h = true
 		$LeftArm.position.x = 5
-	if direction > 0:
+	elif direction > 0:
 		$Sprite.flip_h = false
 		$LeftArm.position.x = -6
+	
+	if direction == 0 and is_on_floor() and !jumping:
+		animation.play("idle")
+	if !jumping and is_on_floor() and (direction < 0 or direction > 0):
+		animation.play("walk")
 	
 	if move_and_slide():
 		for i in get_slide_collision_count():
@@ -48,6 +54,7 @@ func jump(force):
 	Particles.spawn_particle("jump", self)
 	Camera.shake(0.05, 0.5)
 	Audio.play("jump", self)
+	animation.play("jump")
 
 func die():
 	Particles.spawn_particle("explosion", self)

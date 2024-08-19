@@ -6,6 +6,7 @@ class_name Enemy extends CharacterBody2D
 @export var rightTarget: float
 @export var startGoingRight: bool
 @onready var scalable = $Scalable
+@onready var animation = $AnimationPlayer
 var start_speed: float
 var target: float
 
@@ -14,6 +15,11 @@ func _ready():
 	rightTarget += position.x
 	leftTarget += position.x
 	target = rightTarget if startGoingRight else leftTarget
+
+func flip(is_flipped):
+	$Sprite.flip_h = is_flipped
+	for sprite in $Sprite.get_children():
+		sprite.flip_h = is_flipped
 
 const gravity = 980
 func _physics_process(delta):
@@ -26,7 +32,12 @@ func _physics_process(delta):
 	
 	var direction = -1 if target < position.x else 1
 	velocity.x = direction * speed
-	$Sprite.flip_h = direction < 0
+	flip(direction < 0)
+	if is_instance_valid(animation):
+		var anim = "walk" + ("_left" if direction < 0 else "")
+		if animation.has_animation(anim):
+			animation.play(anim)
+		else: animation.play("walk")
 	move_and_slide()
 
 func die():
