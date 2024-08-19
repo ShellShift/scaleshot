@@ -10,8 +10,9 @@ func _process(delta):
 	if angle > max_angle: angle = -max_angle
 	$Sprite.position.y = sin(angle)
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	door.open_door()
+	queue_free()
+	Audio.play("key", self)
 	Particles.spawn_particle("explosion", self)
 	Camera.shake()
-	queue_free()

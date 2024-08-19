@@ -33,6 +33,7 @@ func die():
 	Particles.spawn_particle("explosion", self)
 	Camera.shake()
 	queue_free()
+	Audio.play("die", self)
 
 func _on_head_area_entered(body):
 	if body is Player:

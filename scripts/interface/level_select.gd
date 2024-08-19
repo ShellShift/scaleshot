@@ -10,6 +10,8 @@ func _ready():
 		var button = template.duplicate()
 		button.text = str(level)
 		button.pressed.connect(func():
-			Scenes.load("level_%d" % level))
+			Audio.play("click")
+			Scenes.load("level_%d" % level)
+		)
 		grid.add_child(button)
 	template.queue_free()

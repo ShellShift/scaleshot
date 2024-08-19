@@ -166,7 +166,7 @@ door = NodePath("../Door")
 [node name="Door" parent="Environment" instance=ExtResource("6_h2uwk")]
 position = Vector2(330, 48)
 open = false
-next_level = 1
+next_level = 11
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("13_atkly")

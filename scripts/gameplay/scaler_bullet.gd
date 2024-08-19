@@ -18,3 +18,4 @@ func explode():
 	Camera.shake()
 	Particles.spawn_particle("bullet_explosion", self)
 	queue_free()
+	Audio.play("hit", self)

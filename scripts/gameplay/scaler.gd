@@ -25,6 +25,7 @@ func shoot(alt):
 	get_tree().current_scene.add_child(bullet)
 	Particles.spawn_particle("shoot", bullet)
 	Camera.shake()
+	Audio.play("shoot", self)
 
 func animate_fire_point_color(alt):
 	var color = Color.CORAL if alt else Color.CADET_BLUE

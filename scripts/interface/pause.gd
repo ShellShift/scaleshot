@@ -11,8 +11,9 @@ func toggle_pause():
 		.set_ease(Tween.EASE_IN_OUT) \
 		.set_trans(Tween.TRANS_SINE)
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	Audio.play("click")
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("pause"):
 		toggle_pause()
 

@@ -1,4 +1,4 @@
-extends Node2D
+class_name Scalable extends Node2D
 
 signal scaled(decrease)
 

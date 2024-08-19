@@ -13,6 +13,7 @@ func _on_head_area_entered(body):
 			$Sprite.position.y = -4
 			Camera.shake()
 			Particles.spawn_particle("explosion", self)
+			Audio.play("die", self)
 			return
 		body.jump(jump_velocity)
 		Particles.spawn_particle("jump", self)
@@ -21,6 +22,3 @@ func _on_body_area_entered(body):
 	if bounce_pad:
 		return
 	super._on_body_area_entered(body)
-
-func _on_scaled(decrease):
-	pass

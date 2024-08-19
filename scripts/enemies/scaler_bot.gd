@@ -14,6 +14,8 @@ func _process(delta):
 		bullet.decrease = decrease
 		bullet.fire($FirePoint.global_rotation)
 		add_sibling(bullet)
+		Audio.play("shoot", self)
+		Particles.spawn_particle("shoot", $FirePoint)
 		fire_timer = 0
 		decrease = !decrease
 	if target < position.x:

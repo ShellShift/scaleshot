@@ -19,6 +19,7 @@ func _on_body_entered(body):
 	Scenes.load("level_%d" % next_level)
 	Particles.spawn_particle("explosion", body)
 	Particles.spawn_particle("explosion", self)
+	Audio.play("finish", self)
 	Camera.shake()
 	body.queue_free()
 	queue_free()

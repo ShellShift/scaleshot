@@ -44,12 +44,14 @@ func _physics_process(delta):
 
 func jump(force):
 	jumping = true
+	velocity.y = -force
 	Particles.spawn_particle("jump", self)
 	Camera.shake(0.05, 0.5)
-	velocity.y = -force
+	Audio.play("jump", self)
 
 func die():
 	Particles.spawn_particle("explosion", self)
 	Camera.shake()
 	queue_free()
 	Scenes.reload()
+	Audio.play("die", self)

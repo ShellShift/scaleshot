@@ -14,10 +14,12 @@ func enable(control_name):
 	tween.tween_property(control, "modulate", Color.WHITE, time) \
 		.set_ease(Tween.EASE_IN_OUT) \
 		.set_trans(Tween.TRANS_SINE)
+	Audio.play("click")
 	await tween.finished
 	active.hide()
 	active = control
 
 func quit(game):
+	Audio.play("click")
 	if game: get_tree().quit()
 	Scenes.load("menus")

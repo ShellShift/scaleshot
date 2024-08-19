@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://nt64rlir5ahd"]
+[gd_scene load_steps=3 format=3 uid="uid://nt64rlir5ahd"]
 
 [ext_resource type="Script" path="res://scripts/interface/settings_menu.gd" id="1_vvv1q"]
+[ext_resource type="Theme" uid="uid://b0ff8y0caluxd" path="res://graphics/ui_theme.tres" id="1_ys3eg"]
 
 [node name="Settings" type="Control"]
 visible = false
@@ -8,8 +9,13 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -6.0
+offset_right = -40.0
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_ys3eg")
 script = ExtResource("1_vvv1q")
 
 [node name="Title" type="Label" parent="."]
@@ -42,29 +48,41 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 32
 text = "Back"
 
+[node name="Fullscreen" type="CheckButton" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 112.0
+offset_top = -64.5
+offset_right = 512.0
+offset_bottom = -5.5
+grow_vertical = 2
+text = "Fullscreen"
+
+[node name="CameraShake" type="CheckButton" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 112.0
+offset_top = -7.5
+offset_right = 512.0
+offset_bottom = 51.5
+grow_vertical = 2
+text = "Camera Shake"
+
 [node name="Particles" type="CheckButton" parent="."]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 112.0
-offset_top = -65.5
-offset_right = 382.0
-offset_bottom = -6.5
+offset_top = 49.0
+offset_right = 512.0
+offset_bottom = 108.0
 grow_vertical = 2
 text = "Particles "
-
-[node name="Lighting" type="CheckButton" parent="."]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 112.0
-offset_top = 28.5
-offset_right = 382.0
-offset_bottom = 87.5
-grow_vertical = 2
-text = "Lighting"
 
 [node name="Music" type="HSlider" parent="."]
 layout_mode = 1
@@ -110,8 +128,9 @@ offset_top = -59.0
 offset_right = 131.0
 text = "Sound Effects"
 
+[connection signal="toggled" from="Fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="toggled" from="CameraShake" to="." method="_on_camera_shake_toggled"]
 [connection signal="toggled" from="Particles" to="." method="_on_particles_toggled"]
-[connection signal="toggled" from="Lighting" to="." method="_on_lighting_toggled"]
 [connection signal="drag_ended" from="Music" to="." method="_on_music_drag_ended"]
 [connection signal="value_changed" from="Music" to="." method="_on_music_value_changed"]
 [connection signal="drag_ended" from="SFX" to="." method="_on_sfx_drag_ended"]

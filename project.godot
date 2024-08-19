@@ -22,6 +22,7 @@ config/icon="res://graphics/sprites/icon.png"
 Particles="*res://scripts/managers/particles.gd"
 Scenes="*res://prefabs/interface/scenes.tscn"
 Settings="*res://scripts/managers/settings.gd"
+Audio="*res://scripts/managers/audio.gd"
 
 [display]
 
