@@ -5,6 +5,7 @@ var state: int
 
 const gravity = 980
 func _physics_process(delta):
+	if friction == 0: return move_and_slide()
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	velocity.x = move_toward(velocity.x, 0, friction * delta)
