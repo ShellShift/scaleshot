@@ -5,6 +5,7 @@ extends Control
 @export var level_count: int
 
 func _ready():
+	Audio.play_music("menu")
 	for i in range(level_count):
 		var level = i + 1
 		var button = template.duplicate()

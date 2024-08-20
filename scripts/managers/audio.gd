@@ -20,11 +20,12 @@ func play(audio, parent = null):
 	player.finished.connect(func(): player.queue_free())
 
 func play_music(audio):
-	var tween = create_tween()
 	var player: AudioStreamPlayer2D
+	var tween: Tween
 	if music_player:
-		if music == audio:
-			tween.tween_property(music_player, "volume_db", -80, time)
+		if music == audio: return
+		tween = create_tween()
+		tween.tween_property(music_player, "volume_db", -80, time)
 		player = music_player
 	else: player = AudioStreamPlayer2D.new()
 	var stream = load("res://audio/%s.wav" % audio)
@@ -32,7 +33,9 @@ func play_music(audio):
 	player.bus = "Music"
 	player.volume_db = -80
 	player.autoplay = true
+	if !tween: tween = create_tween()
 	tween.tween_property(player, "volume_db", 0, time)
 	if player != music_player: call_deferred("add_child", player)
+	else: player.play()
 	music_player = player
 	music = audio

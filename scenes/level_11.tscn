@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dr807m1rlx6ib"]
 
 [ext_resource type="Theme" uid="uid://b0ff8y0caluxd" path="res://graphics/ui_theme.tres" id="1_yfodt"]
-[ext_resource type="Script" path="res://scripts/interface/ui_manager.gd" id="2_hakg0"]
+[ext_resource type="Script" path="res://scripts/interface/end.gd" id="2_otvjd"]
 [ext_resource type="TileSet" uid="uid://bcaya3oxal326" path="res://graphics/tileset.tres" id="3_s6ofx"]
 [ext_resource type="Script" path="res://scripts/managers/camera.gd" id="4_7hbqg"]
 [ext_resource type="PackedScene" uid="uid://bvvc8whmt1b3" path="res://prefabs/gameplay/player.tscn" id="4_oncwq"]
@@ -15,7 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_yfodt")
-script = ExtResource("2_hakg0")
+script = ExtResource("2_otvjd")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

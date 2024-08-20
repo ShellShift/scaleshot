@@ -1,5 +1,8 @@
 extends UIManager
 
+func _ready():
+	Audio.play_music("ingame")
+
 func enable(a):
 	super.enable(a)
 

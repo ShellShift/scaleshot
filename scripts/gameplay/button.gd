@@ -41,7 +41,7 @@ func on_box_scale(decrease):
 	set_active(false)
 
 func _on_body_entered(body):
-	if body is Player: return toggle_active()
+	if body is Player and !require_scale: return toggle_active()
 	elif body is Box:
 		if !require_scale:
 			return toggle_active()
